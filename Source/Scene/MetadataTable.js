@@ -240,7 +240,7 @@ MetadataTable.prototype.setProperty = function (index, propertyId, value) {
 
   var classProperty = property.classProperty;
   if (classProperty.type !== MetadataType.ARRAY) {
-    writer(index, property);
+    writer(index, property, value);
     return;
   }
 
@@ -258,7 +258,7 @@ MetadataTable.prototype.setProperty = function (index, propertyId, value) {
   }
 
   for (i = 0; i < length; ++i) {
-    writer(offset + i, value);
+    writer(offset + i, property, value);
   }
 };
 
